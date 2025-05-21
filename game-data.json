@@ -1,0 +1,281 @@
+[
+  {
+    "topic": "U.S. History",
+    "questions": [
+      {
+        "question": "Who was the first President of the United States?",
+        "answer_choices": [
+          {
+            "aid": "A",
+            "choice": "Thomas Jefferson"
+          },
+          {
+            "aid": "B",
+            "choice": "Benjamin Franklin"
+          },
+          {
+            "aid": "C",
+            "choice": "George Washington",
+            "correct": true
+          },
+          {
+            "aid": "D",
+            "choice": "Abraham Lincoln"
+          }
+        ]
+      },
+      {
+        "question": "What document declared the American colonies' independence from Britain?",
+        "answer_choices": [
+          {
+            "aid": "A",
+            "choice": "The Constitution"
+          },
+          {
+            "aid": "B",
+            "choice": "The Bill of Rights"
+          },
+          {
+            "aid": "C",
+            "choice": "The Emancipation Proclamation"
+          },
+          {
+            "aid": "D",
+            "choice": "The Declaration of Independence",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "question": "What war was fought between the North and South regions of the U.S.?",
+        "answer_choices": [
+          {
+            "aid": "A",
+            "choice": "Revolutionary War"
+          },
+          {
+            "aid": "B",
+            "choice": "Civil War",
+            "correct": true
+          },
+          {
+            "aid": "C",
+            "choice": "World War I"
+          },
+          {
+            "aid": "D",
+            "choice": "War of 1812"
+          }
+        ]
+      },
+      {
+        "question": "Which U.S. President issued the Emancipation Proclamation?",
+        "answer_choices": [
+          {
+            "aid": "A",
+            "choice": "Franklin D. Roosevelt"
+          },
+          {
+            "aid": "B",
+            "choice": "George Washington"
+          },
+          {
+            "aid": "C",
+            "choice": "Theodore Roosevelt"
+          },
+          {
+            "aid": "D",
+            "choice": "Abraham Lincoln",
+            "correct": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topic": "Technology",
+    "questions": [
+      {
+        "question": "Who is known as the founder of Microsoft?",
+        "answer_choices": [
+          {
+            "aid": "A",
+            "choice": "Steve Jobs"
+          },
+          {
+            "aid": "B",
+            "choice": "Elon Musk"
+          },
+          {
+            "aid": "C",
+            "choice": "Bill Gates",
+            "correct": true
+          },
+          {
+            "aid": "D",
+            "choice": "Mark Zuckerberg"
+          }
+        ]
+      },
+      {
+        "question": "What does 'www' stand for in a website browser?",
+        "answer_choices": [
+          {
+            "aid": "A",
+            "choice": "World Wide Web",
+            "correct": true
+          },
+          {
+            "aid": "B",
+            "choice": "Web World Wide"
+          },
+          {
+            "aid": "C",
+            "choice": "Wide Web World"
+          },
+          {
+            "aid": "D",
+            "choice": "Web Wireless Window"
+          }
+        ]
+      },
+      {
+        "question": "What company makes the iPhone?",
+        "answer_choices": [
+          {
+            "aid": "A",
+            "choice": "Samsung"
+          },
+          {
+            "aid": "B",
+            "choice": "Microsoft"
+          },
+          {
+            "aid": "C",
+            "choice": "Apple",
+            "correct": true
+          },
+          {
+            "aid": "D",
+            "choice": "Google"
+          }
+        ]
+      },
+      {
+        "question": "Which of these is a popular programming language?",
+        "answer_choices": [
+          {
+            "aid": "A",
+            "choice": "Python",
+            "correct": true
+          },
+          {
+            "aid": "B",
+            "choice": "Giraffe"
+          },
+          {
+            "aid": "C",
+            "choice": "Tornado"
+          },
+          {
+            "aid": "D",
+            "choice": "Koala"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topic": "Recurse Center in New York",
+    "questions": [
+      {
+        "question": "What is the Recurse Center?",
+        "answer_choices": [
+          {
+            "aid": "A",
+            "choice": "A coding bootcamp with a fixed curriculum"
+          },
+          {
+            "aid": "B",
+            "choice": "A graduate school for computer science"
+          },
+          {
+            "aid": "C",
+            "choice": "A self-directed educational retreat for programmers",
+            "correct": true
+          },
+          {
+            "aid": "D",
+            "choice": "A co-working space for startups"
+          }
+        ]
+      },
+      {
+        "question": "Where is the Recurse Center based?",
+        "answer_choices": [
+          {
+            "aid": "A",
+            "choice": "San Francisco"
+          },
+          {
+            "aid": "B",
+            "choice": "Austin"
+          },
+          {
+            "aid": "C",
+            "choice": "New York City",
+            "correct": true
+          },
+          {
+            "aid": "D",
+            "choice": "Chicago"
+          }
+        ]
+      },
+      {
+        "question": "What is one of the core values of the Recurse Center?",
+        "answer_choices": [
+          {
+            "aid": "A",
+            "choice": "Competition over collaboration"
+          },
+          {
+            "aid": "B",
+            "choice": "No pair programming allowed"
+          },
+          {
+            "aid": "C",
+            "choice": "Kindness and curiosity",
+            "correct": true
+          },
+          {
+            "aid": "D",
+            "choice": "Lectures and grading"
+          }
+        ]
+      },
+      {
+        "question": "How long is a typical Recurse Center batch?",
+        "answer_choices": [
+          {
+            "aid": "A",
+            "choice": "3 days"
+          },
+          {
+            "aid": "B",
+            "choice": "4 weeks"
+          },
+          {
+            "aid": "C",
+            "choice": "12 weeks",
+            "correct": true
+          },
+          {
+            "aid": "D",
+            "choice": "1 year"
+          }
+        ]
+      }
+    ]
+  }
+]
