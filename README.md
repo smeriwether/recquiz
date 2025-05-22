@@ -21,3 +21,6 @@ your own quiz with just a few words.
 ## How to run the tests
 
 `uv run pytest test_play.py`
+
+## Game play
+<img width="491" alt="Screenshot 2025-05-22 at 4 33 59 PM" src="https://github.com/user-attachments/assets/e9c919e6-6021-4fb1-8659-116267e604f1" />
