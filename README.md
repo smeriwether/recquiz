@@ -1,6 +1,6 @@
 # recquiz
 
-A termainal-based Quiz game. Comes with a few built-in quizzes and the ability to generate
+A terminal-based Quiz game. Comes with a few built-in quizzes and the ability to generate
 your own quiz with just a few words.
 
 
