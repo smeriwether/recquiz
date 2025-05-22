@@ -1,4 +1,6 @@
-from play import Question, AnswerChoice, Quiz, UserAnswer, GamePlay, GAME_DATA_FILE_PATH
+from play import Question, AnswerChoice, Quiz, UserAnswer, GamePlay, LLMQuiz, LLMCredentialsNotFoundError, GAME_DATA_FILE_PATH
+import os
+from unittest.mock import patch, MagicMock
 
 def test_question_knows_when_it_is_correct():
     question = Question(
@@ -171,4 +173,102 @@ def test_game_play_can_pretty_print_itself():
 def test_game_can_load_itself_from_a_file():
     game_play = GamePlay.from_file(GAME_DATA_FILE_PATH)
     assert len(game_play.games) > 0
+
+def test_llm_quiz_has_correct_default_values():
+    llm_quiz = LLMQuiz()
+    
+    assert llm_quiz.qid == "99"
+    assert llm_quiz.topic == "Build your own"
+    assert llm_quiz.questions == []
+    assert "What do you want your quiz to be about?" in llm_quiz.preamble
+    assert llm_quiz.user_answers == []
+    assert llm_quiz.current_question_idx == 0
+
+def test_llm_quiz_inherits_quiz_behavior():
+    questions = [
+        Question(
+            question="example",
+            answer_choices=[
+                AnswerChoice(aid="A", choice="choice 1"),
+                AnswerChoice(aid="B", choice="choice 2", correct=True),
+            ],
+        ),
+    ]
+    llm_quiz = LLMQuiz(questions=questions)
+    
+    assert llm_quiz.current_score == 0
+    llm_quiz = llm_quiz.answer_question("B")
+    assert llm_quiz.current_score == 1
+    assert "Correct" in llm_quiz.answer
+
+def test_llm_quiz_process_preamble_raises_error_when_no_api_key():
+    llm_quiz = LLMQuiz()
+    
+    with patch.dict(os.environ, {}, clear=True):
+        try:
+            llm_quiz.process_preamble("test topic")
+            assert False, "Should have raised LLMCredentialsNotFoundError"
+        except LLMCredentialsNotFoundError:
+            pass
+
+@patch('play.OpenAI')
+def test_llm_quiz_process_preamble_creates_quiz_with_api_response(mock_openai):
+    mock_client = MagicMock()
+    mock_openai.return_value = mock_client
+    
+    mock_response = MagicMock()
+    mock_response.output_parsed = Quiz(
+        qid="1",
+        topic="test",
+        questions=[
+            Question(
+                question="Test question?",
+                answer_choices=[
+                    AnswerChoice(aid="A", choice="Answer A"),
+                    AnswerChoice(aid="B", choice="Answer B", correct=True),
+                ]
+            )
+        ]
+    )
+    mock_client.responses.parse.return_value = mock_response
+    
+    llm_quiz = LLMQuiz()
+    
+    with patch.dict(os.environ, {"OPENAI_API_KEY": "test_key"}):
+        result = llm_quiz.process_preamble("test topic")
+    
+    assert isinstance(result, LLMQuiz)
+    assert result.qid == "99"
+    assert result.topic == "Build your own"
+    assert len(result.questions) == 1
+    assert result.questions[0].question == "Test question?"
+    
+    mock_openai.assert_called_once_with(api_key="test_key")
+    mock_client.responses.parse.assert_called_once()
+
+@patch('play.OpenAI')
+def test_llm_quiz_process_preamble_uses_correct_prompt(mock_openai):
+    mock_client = MagicMock()
+    mock_openai.return_value = mock_client
+    
+    mock_response = MagicMock()
+    mock_response.output_parsed = Quiz(qid="1", topic="test", questions=[])
+    mock_client.responses.parse.return_value = mock_response
+    
+    llm_quiz = LLMQuiz()
+    
+    with patch.dict(os.environ, {"OPENAI_API_KEY": "test_key"}):
+        llm_quiz.process_preamble("Python programming")
+    
+    call_args = mock_client.responses.parse.call_args
+    assert call_args[1]["model"] == "gpt-4.1-mini"
+    assert call_args[1]["text_format"] == Quiz
+    
+    messages = call_args[1]["input"]
+    assert len(messages) == 2
+    assert messages[0]["role"] == "system"
+    assert "generate a quiz" in messages[0]["content"]
+    assert "4 questions" in messages[0]["content"]
+    assert messages[1]["role"] == "user"
+    assert "Python programming" in messages[1]["content"]
 

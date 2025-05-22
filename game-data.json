@@ -186,7 +186,7 @@
     ]
   },
   {
-    "topic": "Recurse Center in New York",
+    "topic": "Recurse Center",
     "questions": [
       {
         "question": "What is the Recurse Center?",
@@ -219,12 +219,12 @@
           },
           {
             "aid": "B",
-            "choice": "Austin"
+            "choice": "New York City",
+            "correct": true
           },
           {
             "aid": "C",
-            "choice": "New York City",
-            "correct": true
+            "choice": "Austin"
           },
           {
             "aid": "D",
@@ -233,7 +233,7 @@
         ]
       },
       {
-        "question": "What is one of the core values of the Recurse Center?",
+        "question": "What is one of the social rules at the Recurse Center?",
         "answer_choices": [
           {
             "aid": "A",
@@ -241,16 +241,16 @@
           },
           {
             "aid": "B",
-            "choice": "No pair programming allowed"
+            "choice": "No pair programming"
           },
           {
             "aid": "C",
-            "choice": "Kindness and curiosity",
-            "correct": true
+            "choice": "No remote work"
           },
           {
             "aid": "D",
-            "choice": "Lectures and grading"
+            "choice": "No subtle -isms",
+            "correct": true
           }
         ]
       },
